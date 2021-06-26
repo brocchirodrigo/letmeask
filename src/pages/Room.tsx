@@ -1,5 +1,5 @@
 import { FormEvent, useState } from 'react';
-import { useParams } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 
 import { UseAuth } from '../hooks/useAuth';
 import { Button } from '../components/Button';
@@ -92,7 +92,7 @@ export function Room() {
               </div>
             ) : (
               <span>
-                Para enviar uma pergunta, <button>faça seu login.</button>
+                Para enviar uma pergunta, <Link to={'/'}>faça seu login.</Link>
               </span>
             )}
             <Button type="submit" disabled={!user}>Enviar pergunta</Button>
