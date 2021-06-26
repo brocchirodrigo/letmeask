@@ -8,6 +8,7 @@ import illustrationImg from '../assets/images/illustration.svg';
 import logoImg from '../assets/images/logo.svg';
 import googleIconImg from '../assets/images/google-icon.svg';
 
+import { ToastNotify, Toaster } from '../components/Toast';
 
 import '../styles/auth.scss'
 import { database } from '../services/firebase';
@@ -37,12 +38,15 @@ export function Home() {
     const roomRef = await database.ref(`rooms/${roomCode}`).get();
 
     if (!roomRef.exists()) {
-      alert('Room does not exists.')
+      let message = 'Room does not exists.'
+      ToastNotify(true, message)
       return;
     }
 
     if (roomRef.val().endedAt) {
-      alert('Room already closed.')
+      let message = 'Room already closed.'
+      ToastNotify(true, message)
+      return;
     }
 
     history.push(`/rooms/${roomCode}`);
@@ -67,6 +71,7 @@ export function Home() {
           <div className="separator">
             Ou entre em uma sala
           </div>
+          <Toaster />
           <form onSubmit={handleJoinRoom}>
             <input 
               type="text"
