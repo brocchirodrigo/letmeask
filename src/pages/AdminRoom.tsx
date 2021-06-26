@@ -1,7 +1,6 @@
 import { useState } from 'react';
 import { useHistory, useParams } from 'react-router-dom';
 
-// import { UseAuth } from '../hooks/useAuth';
 import { Button } from '../components/Button';
 import { RoomCode } from '../components/RoomCode';
 
@@ -21,7 +20,6 @@ type RoomParams = {
 }
 
 export function AdminRoom() {
-  // const { user } = UseAuth();
   const history = useHistory();
   const params = useParams<RoomParams>();
 
