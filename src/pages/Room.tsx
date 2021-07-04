@@ -46,7 +46,7 @@ export function Room() {
 
     await database.ref(`rooms/${roomId}/questions`).push(question);
 
-    setNewQuestion('');
+    setNewQuestion('')
   }
 
   async function handleLikeQuestion(questionId: string, likeId: string | undefined) {
